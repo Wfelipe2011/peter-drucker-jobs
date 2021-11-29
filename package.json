@@ -1,0 +1,35 @@
+{
+  "name": "peter-drucker-jobs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "npx nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wfelipe2011/peter-drucker-jobs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.4.3",
+    "express": "^4.17.1",
+    "dotenv": "^10.0.0",
+    "axios": "^0.24.0",
+    "node-schedule": "^2.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/Wfelipe2011/peter-drucker-jobs/issues"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.2",
+    "jest": "^27.2.1",
+    "ts-node-dev": "^1.1.8"
+  },
+  "homepage": "https://github.com/Wfelipe2011/peter-drucker-jobs#readme"
+}
