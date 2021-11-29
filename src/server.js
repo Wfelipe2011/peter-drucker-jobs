@@ -13,7 +13,7 @@ const jobInfo = new JobEmail()
 jobInfo.start({ hour: 8, minute: 59, dayOfWeek: [1, 2, 3, 4, 5], tz: 'Etc/GMT-3' })
 
 const jobGet = new JobGet()
-jobGet.start({ hour: 12, minute: 20 })
+jobGet.start('*/10 * * * *')
 
 app.listen(process.env.PORT, () => {
   console.log(`> Sever listening on port: ${process.env.PORT}`);
