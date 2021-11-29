@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "outDir": "./dist",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "strictNullChecks": false, // lapidar o codigo tratando possiveis erros
+        "noImplicitAny": false, // tipar variaveis que estiver any
+        "lib": [
+            "ES5"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

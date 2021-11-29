@@ -1,7 +1,8 @@
 
-import { JobWork } from '../index.js';
+import { JobWork } from '../index';
+import { get } from '../service/api.axios';
 
-export class JobStart {
+export class JobEmail {
   start(config) {
     JobWork.start({
       config: config,
@@ -10,6 +11,6 @@ export class JobStart {
   }
 
   async execute() {
-    console.log("Estou vivo!");
+    await get('job-email')
   }
 }

@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from 'dotenv'
-import { JobEmail } from './job/module/job-email.js';
-import { JobGet } from './job/module/job-get-user-schedule.js';
-import { JobStart } from './job/module/job-start.js';
+import { JobEmail } from './job/module/job-email';
+import { JobGet } from './job/module/job-get-user-schedule';
+import { JobStart } from './job/module/job-start';
 
 dotenv.config();
 const app = express();

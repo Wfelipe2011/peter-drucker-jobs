@@ -1,6 +1,6 @@
 
-import { JobWork } from '../index.js';
-import { get } from '../service/api.axios.js';
+import { JobWork } from '../index';
+import { get } from '../service/api.axios';
 
 export class JobGet {
   start(config) {
