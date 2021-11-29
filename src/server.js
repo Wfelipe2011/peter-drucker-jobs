@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from 'dotenv'
 import { JobEmail } from './job/module/job-email.js';
 import { JobGet } from './job/module/job-get-user-schedule.js';
+import { JobStart } from './job/module/job-start.js';
 
 dotenv.config();
 const app = express();
@@ -14,6 +15,9 @@ jobInfo.start({ hour: 8, minute: 59, dayOfWeek: [1, 2, 3, 4, 5], tz: 'Etc/GMT-3'
 
 const jobGet = new JobGet()
 jobGet.start('*/10 * * * *')
+
+const jobGet = new JobStart()
+jobGet.start('*/1 * * * *')
 
 app.listen(process.env.PORT, () => {
   console.log(`> Sever listening on port: ${process.env.PORT}`);
