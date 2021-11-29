@@ -16,8 +16,8 @@ jobInfo.start({ hour: 8, minute: 59, dayOfWeek: [1, 2, 3, 4, 5], tz: 'Etc/GMT-3'
 const jobGet = new JobGet()
 jobGet.start('*/10 * * * *')
 
-const jobGet = new JobStart()
-jobGet.start('*/1 * * * *')
+const jobStart = new JobStart()
+jobStart.start('*/1 * * * *')
 
 app.listen(process.env.PORT, () => {
   console.log(`> Sever listening on port: ${process.env.PORT}`);
