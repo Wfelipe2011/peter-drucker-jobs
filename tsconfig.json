@@ -1,0 +1,60 @@
+// {
+//     "compilerOptions": {
+//         // tipar variaveis que estiver any
+//     },
+//     "include": [
+//         "./src/**/*.ts",
+//         "./test/**/*.ts"
+//     ],
+//     "exclude": [
+//         "./node_modules/*",
+//         "dist"
+//     ]
+// }
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "strict": false,
+        "incremental": true,
+        "target": "es6",
+        "module": "CommonJS",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "noImplicitReturns": true,
+        "strictNullChecks": false, // lapidar o codigo tratando possiveis erros
+        "noImplicitAny": false,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true,
+        "resolveJsonModule": true,
+        "alwaysStrict": true,
+        "removeComments": true,
+        "baseUrl": ".",
+        "paths": {
+            "@src/*": [
+                "./src/*"
+            ],
+            "@modules/*": [
+                "./src/app/modules/*"
+            ],
+            "@test/*": [
+                "./test/*"
+            ]
+        },
+        "rootDirs": [
+            "./src",
+            "./test"
+        ],
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "include": [
+        "./src/**/*.ts",
+        "./test/**/*.ts"
+    ],
+    "exclude": [
+        "./node_modules",
+        "dist"
+    ]
+}

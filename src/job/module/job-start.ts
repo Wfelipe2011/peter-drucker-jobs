@@ -1,15 +1,14 @@
-
-import { JobWork } from '../index.js';
+import { JobWork } from "../index";
 
 export class JobStart {
-  start(config) {
+  start(config): void {
     JobWork.start({
       config: config,
       start: this.execute.bind(this),
     });
   }
 
-  async execute() {
+  async execute(): Promise<void> {
     console.log("Estou vivo!");
   }
 }
