@@ -1,16 +1,3 @@
-// {
-//     "compilerOptions": {
-//         // tipar variaveis que estiver any
-//     },
-//     "include": [
-//         "./src/**/*.ts",
-//         "./test/**/*.ts"
-//     ],
-//     "exclude": [
-//         "./node_modules/*",
-//         "dist"
-//     ]
-// }
 {
     "compilerOptions": {
         "moduleResolution": "node",
