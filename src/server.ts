@@ -12,7 +12,7 @@ const app = express();
 const jobInfo = new JobEmail();
 jobInfo.start({
   hour: 13,
-  minute: 3,
+  minute: 5,
   dayOfWeek: [1, 2, 3, 4, 5]
 });
 
