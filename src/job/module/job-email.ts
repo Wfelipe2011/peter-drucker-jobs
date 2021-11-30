@@ -1,16 +1,15 @@
-
-import { JobWork } from '../index';
-import { get } from '../service/api.axios';
+import { JobWork } from "../index";
+import { get } from "../service/api.axios";
 
 export class JobEmail {
-  start(config) {
+  start(config): void {
     JobWork.start({
       config: config,
       start: this.execute.bind(this),
     });
   }
 
-  async execute() {
-    await get('job-email')
+  async execute(): Promise<void> {
+    await get("job-email");
   }
 }

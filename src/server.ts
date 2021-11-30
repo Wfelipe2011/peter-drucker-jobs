@@ -6,8 +6,7 @@ import { JobStart } from './job/module/job-start';
 
 dotenv.config();
 const app = express();
-
-// // teste por minuto '*/1 * * * *'
+// teste por minuto '*/1 * * * *'
 // jobEmailInfo.start({ hour: 8, minute: 59, dayOfWeek: [1, 2, 3, 4, 5], tz: 'Etc/GMT-3' });
 // jobUserSchedule.start({ hour: 9, minute: 20 });
 const jobInfo = new JobEmail()
