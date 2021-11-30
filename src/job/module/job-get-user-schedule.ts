@@ -11,7 +11,6 @@ export class JobGet {
   }
 
   async execute(): Promise<void> {
-    const data = await get('user_schedule/job') 
-    console.log(data);
+    await get('user_schedule/job') 
   }
 }

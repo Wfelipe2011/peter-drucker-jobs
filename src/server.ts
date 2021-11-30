@@ -21,7 +21,7 @@ const jobGet = new JobGet();
 jobGet.start("*/10 * * * *");
 
 const jobStart = new JobStart();
-jobStart.start("*/1 * * * *");
+jobStart.start("*/29 * * * *");
 
 app.get("/", (req, res) => {
   res.send("Estou vivo").json()
