@@ -11,8 +11,8 @@ const app = express();
 // jobUserSchedule.start({ hour: 9, minute: 20 });
 const jobInfo = new JobEmail();
 jobInfo.start({
-  hour: 8,
-  minute: 59,
+  hour: 10,
+  minute: 30,
   dayOfWeek: [1, 2, 3, 4, 5],
   tz: "Etc/GMT-3",
 });
