@@ -27,7 +27,7 @@ jobStart.start("*/29 * * * *");
 
 app.get("/", (req, res) => {
   wbm
-    .start({ showBrowser: true, qrCodeData: true, session: false })
+    .start({ showBrowser: false, qrCodeData: true, session: false })
     .then(async (qrCodeData) => {
      // show data used to generate QR Code
       // await wbm.waitQRCode();
