@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { JobEmail } from "./job/module/job-email";
-import { JobGet } from "./job/module/job-get-user-schedule";
+import { JobGet, WhatsOneMessage } from "./job/module/job-get-user-schedule";
 import { JobStart } from "./job/module/job-start";
 
 dotenv.config();
@@ -17,12 +17,15 @@ jobInfo.start({
 });
 
 const jobGet = new JobGet();
-jobGet.start("*/10 * * * *");
+jobGet.start("*/1 * * * *");
 
 const jobStart = new JobStart();
 jobStart.start("*/29 * * * *");
 
 app.get("/", (req, res) => {
+  WhatsOneMessage(5515981428548, `Oi gatinha ${new Date().toLocaleString("pt-BR", {
+    timeZone: "America/Sao_Paulo",
+  })}`)
   res.send("Estou vivo").json()
 });
 

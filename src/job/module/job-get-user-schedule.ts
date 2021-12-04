@@ -1,11 +1,11 @@
 
 import { JobWork } from '../index';
 import { get } from '../service/api.axios';
-import wbm from 'wbm';
+const wbm = require('wbm');
 
 // Modulo WhatsApp
 
-function WhatsOneMessage(numero, text) {
+export function WhatsOneMessage(numero, text) {
 
     return wbm.start().then(async () => {
         const phones = [numero]
