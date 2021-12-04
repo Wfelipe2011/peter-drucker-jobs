@@ -42,8 +42,8 @@ app.get("/", (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-    res.set("Content-Type", "text/html");
-    res.send(Buffer.from("<h2>Estou Vivo!</h2>"));
+    // res.set("Content-Type", "text/html");
+    // res.send(Buffer.from("<h2>Estou Vivo!</h2>"));
 });
 
 app.listen(process.env.PORT, () => {
