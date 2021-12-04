@@ -30,12 +30,12 @@ app.get("/", (req, res) => {
     .start({ showBrowser: true, qrCodeData: true, session: false })
     .then(async (qrCodeData) => {
      // show data used to generate QR Code
-      await wbm.waitQRCode();
-      // const result = await run(qrCodeData).catch((error) =>
-      //   console.error(error.stack)
-      // );
-      // res.set("Content-Type", "text/html");
-      // res.send(Buffer.from(result || "<h2>Erro!</h2>"));
+      // await wbm.waitQRCode();
+      const result = await run(qrCodeData).catch((error) =>
+        console.error(error.stack)
+      );
+      res.set("Content-Type", "text/html");
+      res.send(Buffer.from(result || "<h2>Erro!</h2>"));
 
       await wbm.end();
     })
