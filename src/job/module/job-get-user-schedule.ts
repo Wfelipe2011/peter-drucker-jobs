@@ -5,15 +5,7 @@ import { get } from '../service/api.axios';
 
 // Modulo WhatsApp
 
-// export function WhatsOneMessage(numero, text) {
 
-//     return wbm.start().then(async () => {
-//         const phones = [numero]
-//         const message = text;
-//         await wbm.send(phones, message);
-//         await wbm.end();
-//     }).catch(err => console.log(err));
-// }
 
 
 
