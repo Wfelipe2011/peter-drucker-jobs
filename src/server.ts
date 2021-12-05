@@ -34,7 +34,9 @@ const SELECTORS = {
 app.use(express.static("public"));
 app.get("/connect", puppeteerConection);
 app.get("/send", async (req, res) => {
-  await WhatsOneMessage(5515981428548, "teste");
+  await WhatsOneMessage(5515981785706, "teste 123").catch((e) =>
+    console.error(e)
+  );
   res.send("Chamou").json();
 });
 
@@ -42,7 +44,9 @@ let page = null;
 let browser = null;
 
 async function puppeteerConection(req, res) {
-  const data = await start();
+  const data = await start().catch((e) =>
+  console.error(e)
+);
 
   res.type("image/png");
   res.send(Buffer.from(data));
@@ -55,7 +59,7 @@ app.listen(process.env.PORT, () => {
 async function WhatsOneMessage(numero, text) {
   const phones = [numero];
   const message = text;
-  console.log('chamou');
+  console.log("chamou");
   await send(phones, message);
   // await browser.close()
 }
@@ -66,7 +70,7 @@ async function start() {
 
   page = pageTeste;
   browser = browserTeste;
-  
+
   page.on("dialog", async (dialog) => {
     await dialog.accept();
   });
@@ -98,9 +102,11 @@ async function sendTo(phoneOrContact, message) {
     message = generateCustomMessage(phoneOrContact, message);
   }
   console.log(phone);
-  console.log(`https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
-    message
-  )}`);
+  console.log(
+    `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+      message
+    )}`
+  );
   try {
     process.stdout.write("Sending Message...\r");
     await page.goto(

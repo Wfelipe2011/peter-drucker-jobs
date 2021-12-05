@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "npm run build && node dist/server.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --unhandled-rejections=strict src/server.ts",
     "build": "npx tsc"
   },
   "repository": {
