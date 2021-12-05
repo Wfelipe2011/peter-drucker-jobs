@@ -13,9 +13,7 @@ let page = null;
 let browser = null;
 async function start() {
   try {
-    const browserTeste = await puppeteer.launch({
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    });
+    const browserTeste = await puppeteer.launch({ args: ['--no-sandbox'] })
     const pageTeste = await browserTeste.newPage();
 
     page = pageTeste;
