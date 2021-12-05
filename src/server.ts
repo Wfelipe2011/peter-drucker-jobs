@@ -3,9 +3,7 @@ import dotenv from "dotenv";
 import { JobEmail } from "./job/module/job-email";
 import { JobGet } from "./job/module/job-get-user-schedule";
 import { JobStart } from "./job/module/job-start";
-// const wbm = require("../wbm");
-// const fs = require("fs");
-// const qrcode = require("qrcode");
+
 const puppeteer = require("puppeteer");
 
 dotenv.config();
