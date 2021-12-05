@@ -1,4 +1,6 @@
 const puppeteer = require("puppeteer");
+const path = require('path');
+const tmpPath = path.resolve(__dirname, '../tmp');
 
 const SELECTORS = {
   LOADING: "progress",
@@ -13,10 +15,13 @@ let page = null;
 let browser = null;
 async function start() {
   try {
-    const browserTeste = await puppeteer.launch({
-      headless: false,
-      args: ["--no-sandbox"],
-    });
+    const browserTeste = await puppeteer.launch( {
+      headless: true,
+      userDataDir: tmpPath,
+      args: ["--no-sandbox",
+          // "--blink-settings=imagesEnabled=false"]
+      ]
+  });
     const pageTeste = await browserTeste.newPage();
 
     page = pageTeste;
