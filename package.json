@@ -4,7 +4,7 @@
   "description": "",
   "type": "commonjs",
   "scripts": {
-    "start": "npm run build && node dist/server.js",
+    "start": "npm run build && node dist/whats.js",
     "dev": "ts-node-dev --respawn --transpile-only --unhandled-rejections=strict src/whats.ts",
     "build": "npx tsc"
   },
