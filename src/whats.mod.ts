@@ -40,7 +40,7 @@ async function isInsideChat() {
 async function start() {
   try {
     const browserTeste = await puppeteer.launch({
-      headless: false,
+      headless: true,
       // userDataDir: tmpPath,
       args: [
         "--no-sandbox",
