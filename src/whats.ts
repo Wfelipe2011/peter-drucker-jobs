@@ -23,7 +23,7 @@ async function WhatsOneMessage(numero, text) {
   const message = text;
 
   await send(phones, message);
-  await end()
+ 
 }
 
 async function puppeteerConection(req, res) {
@@ -36,7 +36,9 @@ async function puppeteerConection(req, res) {
   }
   setTimeout(async () => {
     // setInterval(async () => {
-    await WhatsOneMessage(5515981785706, "teste");
+    await WhatsOneMessage(5515981785706, "Essa mensagem foi enviada pelo bot");
+    await WhatsOneMessage(5512981829844, "Essa mensagem foi enviada pelo bot");
+    await end()
     // }, 6000);
   }, 10000);
 }

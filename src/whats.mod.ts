@@ -40,7 +40,7 @@ async function isInsideChat() {
 async function start() {
   try {
     const browserTeste = await puppeteer.launch({
-      headless: false,
+      headless: true,
       // userDataDir: tmpPath,
       args: [
         "--no-sandbox",
@@ -138,8 +138,12 @@ function generateCustomMessage(contact, messagePrototype) {
 }
 
 async function end() {
-  await browser.close();
-  console.log(`Fim...`);
+  setTimeout(async () => {
+    // setInterval(async () => {
+      await browser.close();
+      console.log(`Fim...`);
+    // }, 6000);
+  }, 5000);
 }
 
 export { start, send, end };
