@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "npm run build && node dist/server.js",
-    "dev": "ts-node-dev --respawn --transpile-only --unhandled-rejections=strict src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --unhandled-rejections=strict src/whats.ts",
     "build": "npx tsc"
   },
   "repository": {
@@ -18,10 +18,10 @@
   "dependencies": {
     "axios": "^0.24.0",
     "dotenv": "^10.0.0",
+    "puppeteer": "^2.1.1",
     "express": "^4.17.1",
     "node-schedule": "^2.0.0",
-    "qrcode": "^1.5.0",
-    "wbm": "^1.1.16"
+    "qrcode": "^1.5.0"
   },
   "bugs": {
     "url": "https://github.com/Wfelipe2011/peter-drucker-jobs/issues"

@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
-const path = require('path');
-const tmpPath = path.resolve(__dirname, '../tmp');
+// const path = require('path');
+// const tmpPath = path.resolve(__dirname, '../tmp');
 
 const SELECTORS = {
   LOADING: "progress",
@@ -13,17 +13,41 @@ const SELECTORS = {
 
 let page = null;
 let browser = null;
+
+async function isAuthenticated() {
+  if (!page) return true;
+  console.log("Authenticating...");
+  console.log(await isInsideChat());
+  return await isInsideChat();
+}
+
+async function needsToScan() {
+  return page
+    .waitForSelector(SELECTORS.QRCODE_PAGE, {
+      timeout: 0,
+    })
+    .then(() => false);
+}
+
+async function isInsideChat() {
+  return page
+    .waitForFunction(SELECTORS.INSIDE_CHAT, {
+      timeout: 0,
+    })
+    .then(() => false);
+}
+
 async function start() {
   try {
-    const browserTeste = await puppeteer.launch( {
-      headless: true,
-      userDataDir: tmpPath,
-      args: ["--no-sandbox",
-          // "--blink-settings=imagesEnabled=false"]
-      ]
-  });
+    const browserTeste = await puppeteer.launch({
+      headless: false,
+      // userDataDir: tmpPath,
+      args: [
+        "--no-sandbox",
+        // "--blink-settings=imagesEnabled=false"]
+      ],
+    });
     const pageTeste = await browserTeste.newPage();
-
     page = pageTeste;
     browser = browserTeste;
 
@@ -34,7 +58,6 @@ async function start() {
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36"
     );
     page.setDefaultTimeout(60000);
-
     await page.goto("https://web.whatsapp.com/");
 
     await page.waitForSelector(SELECTORS.QRCODE_DATA, { timeout: 60000 });
@@ -68,20 +91,28 @@ async function sendTo(phoneOrContact, message) {
   );
   try {
     process.stdout.write("Sending Message...\r");
-    await page.goto(
-      `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
-        message
-      )}`
-    );
-    await page.screenshot();
-    await page.waitForSelector(SELECTORS.LOADING, {
-      hidden: true,
-      timeout: 60000,
-    });
-    await page.waitForSelector(SELECTORS.SEND_BUTTON, { timeout: 5000 });
-    await page.keyboard.press("Enter");
-    await page.keyboard.press("Enter");
-    await page.waitFor(2000);
+    await page
+      .goto(
+        `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+          message
+        )}`
+      )
+      .catch((e) => console.log(e));
+
+    await page
+      .waitForSelector(SELECTORS.LOADING, {
+        hidden: true,
+        timeout: 60000,
+      })
+      .catch((e) => console.log(e));
+
+    await page
+      .waitForSelector(SELECTORS.SEND_BUTTON, { timeout: 5000 })
+      .catch((e) => console.log(e));
+    await page.waitFor(3000).catch((e) => console.log(e));
+    await page.keyboard.press("Enter").catch((e) => console.log(e));
+    await page.waitFor(2000).catch((e) => console.log(e));
+    // await page.goto("https://web.whatsapp.com/");
     // process.stdout.clearLine();
     process.stdout.cursorTo(0);
     process.stdout.write(`${phone} Sent\n`);
@@ -106,12 +137,9 @@ function generateCustomMessage(contact, messagePrototype) {
   return message;
 }
 
-async function finish() {
-  try {
-    await browser.close();
-  } catch (error) {
-    console.error("finish => ", error);
-  }
+async function end() {
+  await browser.close();
+  console.log(`Fim...`);
 }
 
-export { start, send, finish };
+export { start, send, end };
