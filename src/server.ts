@@ -6,26 +6,20 @@ import { JobStart } from "./job/module/job-start";
 
 dotenv.config();
 const app = express();
-// teste por minuto '*/1 * * * *'
-// jobEmailInfo.start({ hour: 8, minute: 59, dayOfWeek: [1, 2, 3, 4, 5], tz: 'Etc/GMT-3' });
-// jobUserSchedule.start({ hour: 9, minute: 20 });
+//https://crontab.guru/
 const jobInfo = new JobEmail();
-jobInfo.start({
-  hour: 9,
-  minute: 20,
-});
+jobInfo.start("59 8 * * 1-5");
 
 const jobGet = new JobGet();
-jobGet.start("*/10 * * * *");
+jobGet.start("* 9,12,15 * * 1-5");
 
 const jobStart = new JobStart();
 jobStart.start("*/29 * * * *");
 
 app.get("/", (req, res) => {
-  res.send("Estou vivo!").json()
+  res.send("Estou vivo!").json();
 });
 
 app.listen(process.env.PORT, () => {
   console.log(`> Sever listening on port: ${process.env.PORT}`);
 });
-
